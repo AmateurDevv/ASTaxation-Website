@@ -22,24 +22,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+
+        // Only handle valid section links
+        if (!targetId || targetId === '#' || !document.querySelector(targetId)) {
+            return;
+        }
+
+        e.preventDefault();
+
+        const targetElement = document.querySelector(targetId);
+        const headerHeight = document.querySelector('.header').offsetHeight;
+
+        const targetPosition =
+            targetElement.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight;
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
         });
     });
+});
 
     // Sticky header on scroll
     const header = document.querySelector('.header');
