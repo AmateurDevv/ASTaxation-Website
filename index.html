@@ -336,34 +336,7 @@
         </div>
       </div>
     </section>
-    <script>
-  const form = document.getElementById("taxForm");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const data = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      service: document.getElementById("service").value,
-      message: document.getElementById("message").value,
-    };
-
-    fetch("https://script.google.com/macros/s/AKfycbzhvuk8kc_Nx1IFEciiw7bRagSItRnsen2GqRCwyC3wuO5UyPNMu2kidLXC02krflrSKQ/exec", {
-      method: "POST",
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.text())
-      .then((data) => {
-        alert("Form submitted successfully!");
-        form.reset();
-      })
-      .catch((err) => {
-        alert("Error submitting form");
-      });
-  });
-</script>
+    
 
     <!-- Footer -->
     <footer class="footer">
@@ -427,5 +400,33 @@
 
     <script src="js/script.js"></script>
     <div id="popup-rating-widget"><script id="popup-rating-widget-script" src="https://widget.reviewability.com/js/popupWidget.min.js" data-gfspw="https://app.revu.cloud/popup-pixel/get/2292bb1e0fc55641bd671d213d335b31366fce5c" async></script></div>
+  <script>
+  const form = document.getElementById("taxForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      service: document.getElementById("service").value,
+      message: document.getElementById("message").value,
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbwcB-MbjxrBzAe2iQZ3Dk9UNvgZ_7lwGsY-h6gtM6FDj_GvZKPMp0DRGHB3EYLHHumQ/exec", {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.text())
+      .then((data) => {
+        alert("Form submitted successfully!");
+        form.reset();
+      })
+      .catch((err) => {
+        alert("Error submitting form");
+      });
+  });
+</script>
   </body>
 </html>
