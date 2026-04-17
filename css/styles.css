@@ -694,6 +694,11 @@ img {
     margin-top: 30px;
 }
 
+.social-links {
+  position: relative;
+  z-index: 2000;
+}
+
 
 
 /* ===== Responsive Styles ===== */
